@@ -1,19 +1,18 @@
-# Python cache
+# Python
 __pycache__/
 *.pyc
 
-# Virtual environment
+# Virtual env
 venv/
-.env
 
 # YOLO outputs
 runs/
 
 # Dataset
-datasets/
-archive/
+final_dataset/
 
-# Model weights
+# Models
+models/*.pt
 *.pt
 
 # OS files

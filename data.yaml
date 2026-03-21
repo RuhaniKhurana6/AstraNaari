@@ -1,7 +1,5 @@
-path: C:/Users/Asus/OneDrive/Desktop/Hackathon/archive/dataset
+train: C:/Users/Asus/OneDrive/Desktop/Hackathon/weapon_detection_project/final_dataset/images/train
+val: C:/Users/Asus/OneDrive/Desktop/Hackathon/weapon_detection_project/final_dataset/images/val
 
-train: train/images
-val: val/images
-
-names:
-  0: weapon
+nc: 1
+names: ['weapon']

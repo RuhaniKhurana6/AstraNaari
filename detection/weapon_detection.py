@@ -1,7 +1,8 @@
 from ultralytics import YOLO
+from config import get_model_path
 
-model = YOLO("runs/detect/train7/weights/best.pt")
-
+# Load model correctly
+model = YOLO(get_model_path())
 detection_count = 0
 
 def detect_weapon(frame):
@@ -19,6 +20,10 @@ def detect_weapon(frame):
     # Find best detection
     for box in results[0].boxes:
         conf = float(box.conf)
+        cls = int(box.cls)   # 🔥 get class id
+
+        if cls != 0:
+            continue
 
         if conf > best_conf:
             best_conf = conf
@@ -33,8 +38,8 @@ def detect_weapon(frame):
         area = width * height
 
         # filtering
-        if area < 5000:
-            return False, None, 0
+        if area < 3500:
+            return False, 
 
         # stable increment
         detection_count = min(detection_count + 1, 5)

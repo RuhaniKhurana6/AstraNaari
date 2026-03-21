@@ -1,12 +1,17 @@
 from ultralytics import YOLO
 
-# load pretrained model
-model = YOLO("yolov8n.pt")
+def main():
+    model = YOLO("yolov8s.pt")
 
-# train model
-model.train(
-    data="data.yaml",
-    epochs=15,
-    imgsz=640,
-    batch=8
-)
+    model.train(
+        data="C:/Users/Asus/OneDrive/Desktop/Hackathon/weapon_detection_project/data.yaml",
+        epochs=30,
+        imgsz=640,
+        batch=16,
+        device=0,   # GPU
+        workers=2,
+        name="weapon_final"
+    )
+
+if __name__ == "__main__":
+    main()
