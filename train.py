@@ -4,7 +4,7 @@ def main():
     model = YOLO("yolov8s.pt")
 
     model.train(
-        data="C:/Users/Asus/OneDrive/Desktop/Hackathon/weapon_detection_project/data.yaml",
+        data="C:/Users/Asus/OneDrive/Desktop/Hackathon/dataset#2/data.yaml",
         epochs=30,
         imgsz=640,
         batch=16,
