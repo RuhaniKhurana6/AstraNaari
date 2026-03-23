@@ -1,20 +1,28 @@
-# Python
+# Python caches
 __pycache__/
 *.pyc
 
-# Virtual env
+# Virtual environment
 venv/
+.venv/
 
-# YOLO outputs
+# YOLO/Ultralytics outputs
 runs/
+*.log
 
-# Dataset
+# Datasets - Broad catch for all dataset folders
 final_dataset/
+dataset*/
+dataset#2/
+data.yaml
 
-# Models
-models/*.pt
+# Models - Ignore the entire folder and any loose weights
+models/
 *.pt
+*.onnx
+*.engine
 
 # OS files
 .DS_Store
 Thumbs.db
+.vscode/
