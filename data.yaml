@@ -1,5 +1,0 @@
-train: C:/Users/Asus/OneDrive/Desktop/Hackathon/weapon_detection_project/final_dataset/images/train
-val: C:/Users/Asus/OneDrive/Desktop/Hackathon/weapon_detection_project/final_dataset/images/val
-
-nc: 1
-names: ['weapon']
