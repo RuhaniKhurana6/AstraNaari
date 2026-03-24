@@ -5,6 +5,7 @@ from datetime import datetime
 from streamlit_option_menu import option_menu
 from detection.weapon_detection import WeaponDetector
 from video.capture import ThreadedCamera
+from config import LOCATION_NAME
 
 # Page config
 st.set_page_config(
@@ -91,7 +92,7 @@ if selected == "Dashboard":
                 if not st.session_state['alert_history'] or st.session_state['alert_history'][0]['time'] != now:
                     st.session_state['alert_history'].insert(0, {
                         "time": now,
-                        "location": "Room 1",
+                        "location": LOCATION_NAME,
                         "threat_level": f"WEAPON DETECTED ({best_conf:.2f})"
                     })
             else:
@@ -114,7 +115,7 @@ if selected == "Dashboard":
 # ---------------- LOCATION ----------------
 elif selected == "Location":
     st.title("📍 Location Tracking")
-    st.info("Camera Location: Room 1")
+    st.info(f"Camera Location: {LOCATION_NAME}")
 
 # ---------------- ALERTS ----------------
 elif selected == "Alerts":

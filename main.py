@@ -3,6 +3,7 @@ from video.capture import start_video_capture
 from processing.frame_processor import process_frame
 from detection.weapon_detection import WeaponDetector
 import time
+from config import HIGH_RISK_THRESHOLD, MEDIUM_RISK_THRESHOLD, FRAME_SKIP
 
 def detect_behavior(frame):
     return False
@@ -21,7 +22,7 @@ def main():
         frame_count += 1
 
         # frame skipping (performance)
-        if frame_count % 2 != 0:
+        if frame_count % FRAME_SKIP != 0:
             continue
 
         # Process frame
@@ -38,9 +39,9 @@ def main():
 
         # Update Overall Risk Level
         if weapon_detected:
-            if best_conf > 0.8:
+            if best_conf > HIGH_RISK_THRESHOLD:
                 label = "HIGH RISK"
-            elif best_conf > 0.65:
+            elif best_conf > MEDIUM_RISK_THRESHOLD:
                 label = "MEDIUM RISK"
             else:
                 label = "LOW RISK"

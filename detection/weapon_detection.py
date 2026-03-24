@@ -1,5 +1,5 @@
 from ultralytics import YOLO
-from config import get_model_path, IMG_SIZE, CONF_THRESHOLD, IOU_THRESHOLD, MAX_DET
+from config import get_model_path, IMG_SIZE, CONF_THRESHOLD, IOU_THRESHOLD, MAX_DET, VALID_CLASSES
 
 class WeaponDetector:
     """
@@ -41,7 +41,7 @@ class WeaponDetector:
                 conf = float(box.conf)
                 cls = int(box.cls)
 
-                if cls not in [0, 1]:
+                if cls not in VALID_CLASSES:
                     continue
 
                 if conf > CONF_THRESHOLD:

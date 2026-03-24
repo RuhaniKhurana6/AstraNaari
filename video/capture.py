@@ -1,13 +1,14 @@
 import cv2
 import threading
 import time
+from config import CAMERA_SOURCE
 
 class ThreadedCamera:
     """
     Multithreaded camera capture to prevent the UI from blocking 
     while waiting for the webcam or YOLO inference.
     """
-    def __init__(self, src=0):
+    def __init__(self, src=CAMERA_SOURCE):
         self.capture = cv2.VideoCapture(src)
         self.capture.set(cv2.CAP_PROP_BUFFERSIZE, 2)
         
