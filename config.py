@@ -1,9 +1,10 @@
 import os
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.dirname(PROJECT_DIR)
 
 # Model path
-MODEL_PATH = os.path.join(PROJECT_DIR, "models", "best.pt")
+MODEL_PATH = os.path.join(ROOT_DIR, "runs", "detect", "weapon_final_scratch", "weights", "best.pt")
 
 # Fallback
 FALLBACK_MODEL = os.path.join(PROJECT_DIR, "yolov8n.pt")
